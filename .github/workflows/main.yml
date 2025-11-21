@@ -5,9 +5,11 @@ on: workflow_dispatch
 
 runs-on: ubuntu-latest
 
-steps:
-  - name: Print a greeting
-    run: echo 'Hellow World'
+jobs:
+  greeting:
+    steps:
+      - name: Print a greeting
+        run: echo 'Hellow World'
 
 
 
