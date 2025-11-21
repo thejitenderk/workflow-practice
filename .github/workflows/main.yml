@@ -9,7 +9,7 @@ on:
 
 jobs:
   greeting:
-    uses: thejitenderk/reusable-workflow/blob/main/.github/workflows/practice.yml@main
+    uses: thejitenderk/reusable-workflow/.github/workflows/practice.yml@main
       
 
 
