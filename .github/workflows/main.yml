@@ -11,8 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print a greeting
-        run: echo 'Hellow World'
-
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 
 
 
