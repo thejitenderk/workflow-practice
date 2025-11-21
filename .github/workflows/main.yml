@@ -3,27 +3,14 @@ run-name: Deploy
 
 on: 
   workflow_dispatch:
-    inputs:
-      jitender:
-        default: dev
-        required: false
-        type: string
-      
+
 
 
 
 jobs:
   greeting:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print a greeting
-        env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat
-        run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME ${{ inputs.jitender }}.
+    uses: thejitenderk/reusable-workflow/edit/main/.github/workflows/practice.yml@main
+      
 
 
 
