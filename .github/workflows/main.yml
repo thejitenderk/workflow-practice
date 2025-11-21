@@ -7,8 +7,7 @@ runs-on: ubuntu-latest
 
 steps:
   - name: Print a greeting
-    run: |
-      echo 'Hellow World'
+    run: echo 'Hellow World'
 
 
 
