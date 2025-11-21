@@ -3,6 +3,12 @@ run-name: Deploy
 
 on: 
   workflow_dispatch:
+    inputs:
+      jitender:
+        default: dev
+        required: false
+        type: string
+      
 
 
 
@@ -17,7 +23,7 @@ jobs:
           MIDDLE_NAME: The
           LAST_NAME: Octocat
         run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME ${{ inputs.jitender }}.
 
 
 
