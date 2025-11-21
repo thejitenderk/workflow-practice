@@ -10,6 +10,10 @@ on:
 jobs:
   greeting:
     uses: thejitenderk/reusable-workflow/.github/workflows/practice.yml@main
+    with:
+      environment: prod
+      image_name: ubuntu-latest
+      stepsname: architkapipeline
       
 
 
