@@ -1,0 +1,16 @@
+run-name: Deploy
+
+
+on: workflow_dispatch
+
+runs-on: ubuntu-latest
+
+steps:
+  - name: Print a greeting
+    run: |
+    echo "Hellow World"
+
+
+
+
+
