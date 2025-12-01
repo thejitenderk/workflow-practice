@@ -6,9 +6,10 @@ on: workflow_dispatch
 
 jobs:
   greeting:
-    uses: thejitenderk/reusable-workflow/.github/workflows/practice.yml@main
-    with:
-      environment: santosh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo 'Hello World'
       
 
 
