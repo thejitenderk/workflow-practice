@@ -1,0 +1,14 @@
+name: Hello World Workflow
+
+#none or manual trigger
+on: workflow_dispatch 
+
+
+jobs:
+  my_first_job:
+    name: My first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo "Hello World from my first Github Action Pipeline"
+
