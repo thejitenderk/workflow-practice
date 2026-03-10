@@ -10,8 +10,8 @@ jobs:
     name: My first job
     runs-on: ubuntu-slim
     steps:
-      - name: Greeting
-        run: echo "Hello World from my first Github Action Pipeline created by ${{ env.NAME }} "
+      - name: Greeting ${{ env.NAME }}
+        run: echo "Hello World from my first Github Action Pipeline created by ${{ vars.NAME }} "
         
    
 
