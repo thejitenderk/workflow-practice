@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Greeting
-        run: echo "Hello World from my first Github Action Pipeline created by $NAME"
+        run: echo "Hello World from my first Github Action Pipeline created by ${{ env.NAME }} "
         
    
 
