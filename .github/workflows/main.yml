@@ -8,6 +8,7 @@ jobs:
   my_first_job:
     name: My first job
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Greeting
         run: write-host "Hello World from my first Github Action Pipeline"
@@ -15,7 +16,6 @@ jobs:
   my_second_job:
     name: My Second Job
     needs: my_first_job
-    if: always()
     runs-on: windows-latest
     steps:
       - name: Greeting
