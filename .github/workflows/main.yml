@@ -3,23 +3,16 @@ name: Hello Workflow
 #none or manual trigger
 on: workflow_dispatch 
 
+env:
+  NAME: JITENDER
 
 jobs:
   my_first_job:
     name: My first job
-    runs-on: ubuntu-latest
-    continue-on-error: true
+    runs-on: ubuntu-slim
     steps:
       - name: Greeting
-        run: write-host "Hello World from my first Github Action Pipeline"
-        
-  my_second_job:
-    name: My Second Job
-    needs: my_first_job
-    runs-on: windows-latest
-    steps:
-      - name: Greeting
-        run: write-host "Hello from Windows"
+        run: echo "Hello World from my first Github Action Pipeline created by $NAME"
         
    
 
