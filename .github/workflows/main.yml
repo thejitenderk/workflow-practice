@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Greeting
-        run: echo "Hello World from my first Github Action Pipeline created by ${{ vars.NAME }}- ${{ RUNNER.OS }} "
+        run: echo "ye pipeline ${{ github.event.inputs.infra_env }} me chalegi by ${{ vars.NAME }}- ${{ RUNNER.OS }} "
         
    
 
