@@ -14,5 +14,14 @@ jobs:
   
       - name: Greeting
         run: echo "Hello World from my first Github Action Pipeline"
+        
+  my_second_job:
+    name: My Second Job
+    runs-on: windows-latest
+    steps:
+      - name: Greeting
+        run: write-host "Hello from Windows"
+        
+   
 
  
