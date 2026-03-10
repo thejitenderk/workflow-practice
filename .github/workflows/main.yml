@@ -8,6 +8,9 @@ on:
         description: 'Bhai kha p deploy karna h'
         type: string
         default: dev
+      version:
+       default: 1
+       type: number
         
 
 
@@ -19,7 +22,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Greeting
-        run: echo "ye pipeline ${{ github.event.inputs.infra_env }} me chalegi by ${{ vars.NAME }}- ${{ RUNNER.OS }} "
+        run: echo "ye pipeline ${{ github.event.inputs.infra_env}} me chalegi by ${{ vars.NAME }}- ${{ RUNNER.OS }} "
         
    
 
