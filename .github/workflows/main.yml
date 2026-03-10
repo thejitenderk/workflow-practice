@@ -9,6 +9,10 @@ jobs:
     name: My first job
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+  
       - name: Greeting
         run: echo "Hello World from my first Github Action Pipeline"
 
+ 
