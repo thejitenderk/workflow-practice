@@ -3,13 +3,14 @@ name: Hello Workflow
 #none or manual trigger
 on: workflow_dispatch 
 
-env:
-  NAME: JITENDER
+
 
 jobs:
   my_first_job:
     name: My first job
     runs-on: ubuntu-slim
+    env:
+      NAME: 'Jitender Kumar'
     steps:
       - name: Greeting
         run: echo "Hello World from my first Github Action Pipeline created by $NAME"
