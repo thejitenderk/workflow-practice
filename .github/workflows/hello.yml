@@ -14,5 +14,5 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys What's Up, I'm good ${{ secrets.NAME }}"
+        run: echo "Hello Guys What's Up, I'm good ${{ secrets.ANSIBLE_USER }}"
   
