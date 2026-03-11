@@ -2,14 +2,7 @@ name: Greetings
 
 on:
   workflow_dispatch:
-    inputs:
-      rgname:
-        description: Please type proper rgname
-        type: choice
-        options:
-          - rgdemo-dev
-          - rgdemo-prod
-          - rgdemo-qa
+  push:
 
 # user define
 # pre-define variable
