@@ -9,6 +9,7 @@ jobs:
   greeting:
     name: Greeting Audience
     runs-on: windows-latest
+    continue-on-error: true
     steps:
       - name: Hello Audience
         run: ech "Hello Guys What's Up"
@@ -16,7 +17,6 @@ jobs:
   linuxgreeting:
     name: Greeting Audience by linux
     needs: greeting
-    if: always()
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience
