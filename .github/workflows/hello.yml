@@ -1,7 +1,11 @@
 name: Greetings
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      rgname:
+        default: rgdemo
+        type: string
 
 # user define
 # pre-define variable
