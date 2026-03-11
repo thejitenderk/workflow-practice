@@ -3,22 +3,22 @@ name: Greetings
 on:
   workflow_dispatch: 
 
-#pipeline level agent ko assign nhi kar sakte
+env:
+  name: jitender
 
 jobs:
   greeting:
     name: Greeting Audience
     runs-on: windows-latest
-    continue-on-error: true
     steps:
       - name: Hello Audience
-        run: ech "Hello Guys What's Up"
+        run: write-host "Hello $name, How are you?"
         
   linuxgreeting:
-    name: Greeting Audience by linux
+    name: reply by linux $name
     needs: greeting
     runs-on: ubuntu-slim
     steps:
-      - name: Hello Audience
-        run: echo "Hello Guys What's Up"
+      - name: Hello Audience $name
+        run: echo "Hello Guys What's Up, I'm good"
   
