@@ -2,6 +2,7 @@ name: Greetings
 
 on:
   push:
+  workflow_dispatch: 
 
 # user define
 # pre-define variable
