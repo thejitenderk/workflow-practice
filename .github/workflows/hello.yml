@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Hello Audience
-        run: echo "Hello Guys What's Up"
+        run: ech "Hello Guys What's Up"
         
   linuxgreeting:
     name: Greeting Audience by linux
