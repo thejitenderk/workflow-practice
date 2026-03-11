@@ -4,7 +4,7 @@ on:
   workflow_dispatch: 
 
 env:
-  name: jitender
+  NAME: 'jitender'
 
 jobs:
   greeting:
@@ -12,13 +12,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Hello Audience
-        run: write-host "Hello $name, How are you?"
+        run: write-host "Hello $NAME, How are you?"
         
   linuxgreeting:
     name: reply by linux $name
     needs: greeting
     runs-on: ubuntu-slim
     steps:
-      - name: Hello Audience $name
+      - name: Hello Audience $NAME
         run: echo "Hello Guys What's Up, I'm good"
   
