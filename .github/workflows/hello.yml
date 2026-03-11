@@ -8,8 +8,8 @@ on:
 jobs:
   greeting:
     name: Greeting Audience
-    runs-on: ubuntu-slim
+    runs-on: windows-latest
     steps:
       - name: Hello Audience
-        run: echo "Hello Guys What's Up"
+        run: write-host "Hello Guys What's Up"
   
