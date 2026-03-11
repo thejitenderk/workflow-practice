@@ -12,4 +12,11 @@ jobs:
     steps:
       - name: Hello Audience
         run: write-host "Hello Guys What's Up"
+        
+  linuxgreeting:
+    name: Greeting Audience by linux
+    runs-on: ubuntu-slim
+    steps:
+      - name: Hello Audience
+        run: echo "Hello Guys What's Up"
   
