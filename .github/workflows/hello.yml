@@ -3,8 +3,7 @@ name: Greetings
 on:
   workflow_dispatch: 
 
-env:
-  WIN_NAME: 'jitender'
+
 
 jobs:
 
@@ -12,8 +11,8 @@ jobs:
   linuxgreeting:
     name: reply by linux $name
 
-    runs-on: windows-2022
+    runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys What's Up, I'm good $env:WIN_NAME"
+        run: echo "Hello Guys What's Up, I'm good ${{ vars.NAME }}"
   
