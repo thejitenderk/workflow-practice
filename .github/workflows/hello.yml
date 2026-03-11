@@ -5,8 +5,11 @@ on:
     inputs:
       rgname:
         description: Please type proper rgname
-        default: rgdemo
-        type: string
+        type: choice
+        options:
+          - rgdemo-dev
+          - rgdemo-prod
+          - rgdemo-qa
 
 # user define
 # pre-define variable
