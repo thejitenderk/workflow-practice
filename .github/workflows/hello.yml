@@ -15,6 +15,7 @@ jobs:
         
   linuxgreeting:
     name: Greeting Audience by linux
+    needs: greeting
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience
