@@ -1,0 +1,15 @@
+name: Greetings
+
+on:
+  workflow_dispatch: 
+
+#pipeline level agent ko assign nhi kar sakte
+
+jobs:
+  greeting:
+    name: Greeting Audience
+    runs-on: ubuntu-slim
+    steps:
+      - name: Hello Audience
+        run: echo "Hello Guys What's Up"
+  
