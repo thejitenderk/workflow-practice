@@ -16,6 +16,7 @@ jobs:
   linuxgreeting:
     name: Greeting Audience by linux
     needs: greeting
+    if: always()
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience
