@@ -12,8 +12,8 @@ jobs:
   linuxgreeting:
     name: reply by linux $name
 
-    runs-on: ubuntu-slim
+    runs-on: windows-2022
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys What's Up, I'm good $NAME"
+        run: echo "Hello Guys What's Up, I'm good $env:WIN_NAME"
   
