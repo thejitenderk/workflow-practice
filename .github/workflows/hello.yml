@@ -3,7 +3,9 @@ name: Greetings
 on:
   workflow_dispatch: 
 
-
+# user define
+# pre-define variable
+# run time variable
 
 jobs:
 
@@ -14,5 +16,5 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys What's Up, I'm good ${{ secrets.ANSIBLE_USER }}"
+        run: echo "Hello Guys What's Up, I'm good ${{ secrets.ANSIBLE_USER }}-${{ github.run_number }} "
   
