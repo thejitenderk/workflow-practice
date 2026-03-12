@@ -2,12 +2,12 @@ name: Infra Setup
 
 on:
   workflow_dispatch: 
-  pull_request: 
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  # pull_request: 
+  #   branches:
+  #     - main
+  # push:
+  #   branches:
+  #     - main
   
 
 # user define
@@ -24,6 +24,12 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+          creds: ${{ secrets.AZURE_CREDENTIAL }}
 
       - name: Terraform Init
         run: terraform -chdir=environment/dev init
