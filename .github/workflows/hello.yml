@@ -25,8 +25,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: list
-        run: ls -ltr
+      - name: cd into working folder
+        run: cd environment/dev
 
       - name: Terraform Init
         run: terraform init
