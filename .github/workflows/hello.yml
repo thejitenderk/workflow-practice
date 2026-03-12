@@ -23,7 +23,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
 
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v6
 
       - name: list
         run: ls -ltr
