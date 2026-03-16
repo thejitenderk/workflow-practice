@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Variables
-RG_NAME="rg-demo"
+RG_NAME="rg-tfstate"
 LOCATION="eastus"
-STG_NAME="stgdemo2026tf"       
+STG_NAME="stgdemo2026tf2"       
 CONTAINER_NAME="mycontainer"
 
 # 1. Create Resource Group
