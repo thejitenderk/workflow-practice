@@ -1,20 +1,14 @@
-name: Infra Setup
-
+name: Infra Destroy
 
 on: 
   workflow_dispatch: 
-  pull_request: 
-    branches:
-      - main
-  push:
-    branches:
-      - main
-
 
 jobs:
   terraform_create:
     name: Terraform Infra Setup
     runs-on: ubuntu-latest
+    environment:
+      name: dev
     steps:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v2.0.3
@@ -38,5 +32,4 @@ jobs:
         run: terraform -chdir=environment/dev plan
       
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform -chdir=environment/dev apply --auto-approve
+        run: terraform -chdir=environment/dev destroy --auto-approve
