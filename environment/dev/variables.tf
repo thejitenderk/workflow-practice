@@ -6,7 +6,11 @@ variable "vnets" {
   
 }
 
-variable "linux_vms" {
+# variable "linux_vms" {
+  
+# }
+
+variable "windowsvm" {
   
 }
 

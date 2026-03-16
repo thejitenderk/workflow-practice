@@ -6,7 +6,7 @@ variable "nsgs" {
     resource_group_name = string
     location            = string
 
-    security_rules = map(object({
+    security_rules = list(object({
       name                       = string
       priority                   = number
       direction                  = string

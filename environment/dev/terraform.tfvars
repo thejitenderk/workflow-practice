@@ -1,15 +1,15 @@
 # ─── RESOURCE GROUPS ───
 resource_groups = {
-  "rg-dev-uks" = {
-    location = "UK South"
+  "rg-dev-ci" = {
+    location = "centralindia"
   }
 }
 
 # ─── VNETS with SUBNETS ───
 vnets = {
-  "vnet-dev-uks" = {
-    resource_group_name = "rg-dev-uks"
-    location            = "UK South"
+  "vnet-dev-ci" = {
+    resource_group_name = "rg-dev-ci"
+    location            = "centralindia"
     address_space       = ["10.0.0.0/16"]
     subnets = [
       {
@@ -27,39 +27,39 @@ vnets = {
 # ─── NSGs ───
 nsgs = {
   "nsg-dev" = {
-    resource_group_name = "rg-dev-uks"
-    location            = "UK South"
+    resource_group_name = "rg-dev-ci"
+    location            = "centralindia"
     security_rules = [
       {
-        name                       = "allow-ssh"
+        name                       = "allow-rdp"
         priority                   = 100
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
-        destination_port_range     = "22"
+        destination_port_range     = "3389"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
       },
       {
-        name                       = "allow-http"
+        name                       = "allow-winrmsec"
         priority                   = 110
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
-        destination_port_range     = "80"
+        destination_port_range     = "5986"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
       },
       {
-        name                       = "allow-https"
+        name                       = "allow-winrm"
         priority                   = 120
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
-        destination_port_range     = "443"
+        destination_port_range     = "5985"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
       }
@@ -72,36 +72,37 @@ nsgassoc = {
   "dev-web-nsg-assoc" = {
     subnet_name          = "snet-web"
     nsgname              = "nsg-dev"
-    virtual_network_name = "vnet-dev-uks"
-    resource_group_name  = "rg-dev-uks"
+    virtual_network_name = "vnet-dev-ci"
+    resource_group_name  = "rg-dev-ci"
   }
   "dev-app-nsg-assoc" = {
     subnet_name          = "snet-app"
     nsgname              = "nsg-dev"
-    virtual_network_name = "vnet-dev-uks"
-    resource_group_name  = "rg-dev-uks"
+    virtual_network_name = "vnet-dev-ci"
+    resource_group_name  = "rg-dev-ci"
   }
 
 }
 
 # ─── LINUX VMs ───
-linux_vms = {
+windowsvm = {
   "vm-dev-web-01" = {
-    resource_group_name  = "rg-dev-uks"
-    virtual_network_name = "vnet-dev-uks"
+    resource_group_name  = "rg-dev-ci"
+    location             = "centralindia"
+    virtual_network_name = "vnet-dev-ci"
     subnet_name          = "snet-web"
-    vm_size              = "Standard_DC1ds_v3"
+    vm_size              = "Standard_D2s_v3"
     admin_username       = "azureadmin"
     admin_password       = "Welcome$1234"
 
   }
   "vm-dev-app-01" = {
-    resource_group_name = "rg-prod-uks"
-    virtual_network_name           = "vnet-prod-uks"
-    subnet_name        = "snet-app"
-    vm_size            = "Standard_DC1ds_v3"
-    admin_username     = "azureuser"
-    admin_password     = "Welcome$1234"
-
+    resource_group_name  = "rg-dev-ci"
+    location             = "centralindia"
+    virtual_network_name = "vnet-dev-ci"
+    subnet_name          = "snet-app"
+    vm_size              = "Standard_D2s_v3"
+    admin_username       = "azureadmin"
+    admin_password       = "Welcome$1234"
   }
 }
