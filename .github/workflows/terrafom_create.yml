@@ -14,8 +14,8 @@ on:
 
 
 jobs:
-  terraform_init:
-    name: Terraform Init
+  terraform_create:
+    name: Terraform Infra Setup
     runs-on: ubuntu-latest
     steps:
       - name: Terraform setup
@@ -38,3 +38,7 @@ jobs:
       
       - name: Terraform Plan
         run: terraform -chdir=environment/dev plan
+      
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform -chdir=environment/dev apply
