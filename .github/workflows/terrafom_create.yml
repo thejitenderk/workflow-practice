@@ -9,5 +9,6 @@ jobs:
     with:
       environment: dev
       working_directory: environment
+      runner: ubuntu-latest
     secrets:
       azurelogin: ${{ secrets.AZURE_CREDENTIALS }}
