@@ -8,8 +8,6 @@ jobs:
     uses: thejitenderk/reusable-workflow/.github/workflows/practice.yml@main
     with:
       environment: dev
-      terraform_version: 1.6.6
       working_directory: environment
-      runner: ubuntu-slim
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
