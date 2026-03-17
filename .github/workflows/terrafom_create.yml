@@ -15,6 +15,11 @@ jobs:
   terraform_create:
     name: Terraform Infra Setup
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: environment/dev
+    permissions:
+      pull-requests: write
     steps:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v2.0.3
