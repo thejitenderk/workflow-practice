@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run: 
-        working-directory: environment/dev
+        working-directory: ./environment/dev
         
     steps:
       - name: HashiCorp - Setup Terraform
