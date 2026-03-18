@@ -15,8 +15,9 @@ jobs:
     name: Terraform Infra
     runs-on: ubuntu-latest
     defaults:
-      run:
+      run: 
         working-directory: environment/dev
+        
     steps:
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
