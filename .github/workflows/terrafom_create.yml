@@ -16,11 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run: 
-        working-directory: workflow-practice/environment/dev
+        working-directory: environment/dev
         
     steps:
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
+
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
       - name: Azure login
         uses: azure/login@v3
