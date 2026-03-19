@@ -40,6 +40,9 @@ jobs:
        
       - name: Show version
         run: tflint --version
+        
+      - name: Run TFLint
+        run: tflint -f compact
 
       - name: Terraform Init
         run: terraform init 
