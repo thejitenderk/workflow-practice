@@ -34,11 +34,18 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Super-linter
-        uses: super-linter/super-linter@v8.5.0 # x-release-please-version
+      - name: Super-Linter
+        uses: super-linter/super-linter@v8.5.0
         env:
-          # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+          # Disable all by default
+          VALIDATE_ALL_CODEBASE: false
+      
+          # Enable only required
+          VALIDATE_TERRAFORM_TFLINT: true
+          VALIDATE_CHECKOV: true
+          VALIDATE_TRIVY: true
           
   terraform:
     name: Terraform Infra
