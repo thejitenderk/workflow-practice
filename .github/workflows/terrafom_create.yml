@@ -59,7 +59,7 @@ jobs:
           framework: terraform 
       
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: results.sarif
