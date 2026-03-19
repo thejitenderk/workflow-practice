@@ -44,6 +44,19 @@ jobs:
       - name: Run TFLint
         run: tflint -f compact
         continue-on-error: true
+        
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: environment/dev
+          framework: terraform 
 
       - name: Terraform Init
         run: terraform init 
