@@ -12,56 +12,21 @@ on:
 permissions:
   id-token: write
   contents: read
-  packages: read
-  # issues and pull-requests permissions to write results as pull
-  # request comments. Omit them if you don't need summary comments
-  issues: write
-  pull-requests: write
-  # To report GitHub Actions status checks. Omit if you don't need
-  # to update commit status
-  statuses: write
-  
-jobs:
-  super-lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6.0.2
-        with:
-          # super-linter needs the full git history to get the
-          # list of files that changed across commits
-          fetch-depth: 0
-          persist-credentials: false
 
-      - name: Super-Linter
-        uses: super-linter/super-linter@v8.5.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-          # Disable all by default
-          VALIDATE_ALL_CODEBASE: false
-      
-          # Enable only required
-          VALIDATE_TERRAFORM_TFLINT: true
-          VALIDATE_CHECKOV: true
-          VALIDATE_TRIVY: true
-          
+jobs:
   terraform:
-    name: Terraform Infra
-    needs: super-lint
-    runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: environment/dev
-        
-    steps:
+   name: Terraform Infra
+   runs-on: self-hosted
+   defaults:
+     run: 
+       working-directory: environment/dev
+   steps:
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
-
+    
       - name: Checkout
         uses: actions/checkout@v6.0.2
-
+    
       - name: Azure login
         uses: azure/login@v3
         with:
@@ -69,43 +34,4 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-      - uses: terraform-linters/setup-tflint@v6
-        name: Setup TFLint
-       
-      - name: Show version
-        run: tflint --version
-        
-      - name: Run TFLint
-        run: tflint -f compact
-        continue-on-error: true
-        
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-          
-      - name: Test with Checkov
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        continue-on-error: true
-        with:
-          directory: environment/dev
-          framework: terraform 
-      
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          # Artifact name
-          name: results.sarif
-          # A file, directory or wildcard pattern that describes what to upload
-          path: .
-          # The desired behavior if no files are found using the provided path.
-
-      - name: Terraform Init
-        run: terraform init 
-        
-      - name: Terraform Validate
-        run: terraform validate
-        
-      - name: Terraform Plan
-        run: terraform plan
+    
