@@ -26,6 +26,9 @@ jobs:
     
       - name: Checkout
         uses: actions/checkout@v6.0.2
+
+      - name: Azure CLI Action
+        uses: Azure/cli@v2.2.0
     
       - name: Azure login
         uses: azure/login@v3
