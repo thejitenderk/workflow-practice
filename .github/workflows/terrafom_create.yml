@@ -26,15 +26,9 @@ jobs:
     
       - name: Checkout
         uses: actions/checkout@v6.0.2
+      - name: version
+        run: |
+          cat /etc/os-release
+          terraform --version
 
-      - name: Azure CLI Action
-        uses: Azure/cli@v2.2.0
-    
-      - name: Azure login
-        uses: azure/login@v3
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    
     
