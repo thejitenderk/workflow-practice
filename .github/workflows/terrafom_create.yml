@@ -16,7 +16,7 @@ permissions:
 jobs:
   terraform:
    name: Terraform Infra
-   runs-on: arc-runner-set 
+   runs-on: arc-runner-set
    defaults:
      run: 
        working-directory: environment/dev
