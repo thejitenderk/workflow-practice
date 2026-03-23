@@ -27,8 +27,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: version
-        run: |
-          cat /etc/os-release
-          terraform --version
+        run: cat /etc/os-release
+
+      - name: terraform version
+        run: terraform --version
 
     
